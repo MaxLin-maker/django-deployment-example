@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+{% extends 'in_app/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block body_block%}
+<div class="container">
+  <div class="jumbotron">
+
+    {% if registered %}
+    <h1>Thank you for registering</h1>
+
+    {% else %}
+    <h1>Register</h1>
+    <h3>Please fill the form:</h3>
+    <form method="POST"  enctypr='multimedia/form-data'>
+      <div class="col-5">
+        {% csrf_token%}
+        {{user_form|crispy}}
+        {{profile_form|crispy}}
+        <input type="Submit" class="btn btn-primary" value="Register">
+      </div>
+    </form>
+    {% endif%}
+  </div>
+</div>
+{% endblock%}

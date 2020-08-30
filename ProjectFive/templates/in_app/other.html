@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% extends 'in_app/base.html' %}
+
+{% block body_block%}
+
+  <div class="container">
+    <div class="jumbotron">
+      <form method="POST">
+        {% csrf_token %}
+        <input type="number" name="value01">
+        <input type="number" name="value02">
+        <input type="submit" value="Submit">
+        <br>
+        <p>Total:</p>
+        {{total}}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock%}
